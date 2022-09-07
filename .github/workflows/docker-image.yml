@@ -20,6 +20,9 @@
 name: Publish Docker image
 
 on:
+  push:
+    branches:
+      - 'test_publish_docker_image'
   release:
     types: [published]
 

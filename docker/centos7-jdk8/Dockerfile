@@ -21,8 +21,6 @@ FROM docker.io/centos:7
 
 MAINTAINER mikexue <mike_xwm@126.com>
 
-RUN apt-get -y install software-properties-common
-
 # Install Java
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \

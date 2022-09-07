@@ -22,7 +22,7 @@ FROM docker.io/centos:7
 MAINTAINER mikexue <mike_xwm@126.com>
 
 RUN yum update -y && yum install net-tools -y && yum install lrzsz -y && yum install vim -y
-ADD https://repo.huaweicloud.com/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz /usr/local/src/
+ADD https://download.oracle.com/java/17/archive/jdk-17.0.1_linux-x64_bin.tar.gz /usr/local/src/
 RUN ln -s /usr/local/src/jdk1.8.0_281/ /usr/local/jdk
 
 ENV JAVA_HOME /usr/local/jdk

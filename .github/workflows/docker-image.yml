@@ -21,7 +21,6 @@ name: Publish Docker image
 
 on:
   release:
-    branches: [master]
     types: [published]
 
 jobs:

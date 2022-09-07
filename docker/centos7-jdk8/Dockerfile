@@ -21,19 +21,11 @@ FROM docker.io/centos:7
 
 MAINTAINER mikexue <mike_xwm@126.com>
 
-ENV JAVA_VERSION 8u77
-ENV BUILD_VERSION b03
+RUN yum update -y && yum install net-tools -y && yum install lrzsz -y && yum install vim -y
+ADD https://repo.huaweicloud.com/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz /usr/local/src/
+RUN ln -s /usr/local/src/jdk1.8.0_281/ /usr/local/jdk
 
-RUN yum -y install wget; wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-$BUILD_VERSION/jdk-$JAVA_VERSION-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm; yum -y install /tmp/jdk-8-linux-x64.rpm
-
-# JDK stripping
-RUN rm -f /usr/java/jdk1.8.0_77/src.zip /usr/java/jdk1.8.0_77/javafx-src.zip
-RUN rm -rf /usr/java/jdk1.8.0_77/lib/missioncontrol/ /usr/java/jdk1.8.0_77/lib/visualvm/ /usr/java/jdk1.8.0_77/db/
-
-RUN alternatives --install /usr/bin/java java /usr/java/latest/bin/java 1
-RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 1
-
-ENV JAVA_HOME /usr/java/latest
+ENV JAVA_HOME /usr/local/jdk
 ENV JRE_HOME $JAVA_HOME/jre
 ENV CLASSPATH .:$JAVA_HOME/lib/:$JRE_HOME/lib/
 ENV PATH $PATH:$JAVA_HOME/bin

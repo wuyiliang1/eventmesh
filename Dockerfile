@@ -31,7 +31,7 @@ ENV CLASSPATH .:$JAVA_HOME/lib/:$JRE_HOME/lib/
 ENV PATH $PATH:$JAVA_HOME/bin
 
 WORKDIR /data
-RUN mkdir /data/app/eventmesh
+RUN mkdir -p /data/app/eventmesh
 COPY ./* /data/app/eventmesh
 WORKDIR /data/app/eventmesh/bin
 

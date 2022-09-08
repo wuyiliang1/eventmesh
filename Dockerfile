@@ -32,7 +32,7 @@ ENV PATH $PATH:$JAVA_HOME/bin
 
 WORKDIR /data
 RUN mkdir /data/app
-ADD EventMesh_1.3.0-release.tar.gz  /data/app/eventmesh
+ADD ./* /data/app/eventmesh
 WORKDIR /data/app/eventmesh/bin
 
 EXPOSE 10000

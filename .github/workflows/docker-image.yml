@@ -46,16 +46,10 @@ jobs:
         with:
           images: wuyiliang1/event-mesh
 
-      - name: Build centos7-jdk8
-        uses: docker/build-push-action@v3
-        with:
-          context: ./docker/centos7-jdk8
-          push: false
-
       - name: Build and push eventmesh Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./docker/eventmesh
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
